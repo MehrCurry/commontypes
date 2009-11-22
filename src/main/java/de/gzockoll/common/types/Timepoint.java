@@ -1,26 +1,32 @@
 package de.gzockoll.common.types;
 
-import java.util.Calendar;
 import java.util.Date;
+
+import org.joda.time.DateTime;
 
 public class Timepoint {
 	public static final Timepoint PAST = new Timepoint(new Date(0));
-	private Date date;
+	private DateTime dateTime;
 
 	public Timepoint(Date date) {
 		super();
-		this.date = date;
+		this.dateTime = new DateTime(date);		
+	}
+
+	public Timepoint(DateTime date) {
+		super();
+		this.dateTime = date;
 	}
 
 	public Timepoint(int year, int month, int day) {
-		Calendar cal=Calendar.getInstance();
-		cal.set(Calendar.YEAR,year);
-		cal.set(Calendar.MONTH,month-1);
-		cal.set(Calendar.DAY_OF_MONTH,day);
-		this.date=cal.getTime();
+		this.dateTime=new DateTime(year,month,day,0,0,0,0);
 	}
 
 	public Date getDate() {
-		return date;
+		return dateTime.toDate();
+	}
+
+	public DateTime getTimeDate() {
+		return dateTime;
 	}
 }

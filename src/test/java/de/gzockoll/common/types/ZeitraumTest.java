@@ -17,13 +17,13 @@ public class ZeitraumTest {
 	@Test
 	public void testContains() {
 		Date start = TimeFactory.parseDateTime("1.1.2009 00:00");
-		Date ende = TimeFactory.parseDateTime("31.12.2009 23:59");
+		Date ende = TimeFactory.parseDateTime("1.1.2010 00:00");
 		TimeSpan z=new TimeSpan(start,ende);
 		assertThat(z.contains(TimeFactory.parseDate("1.5.2009")),is(true));
 		assertThat(z.contains(TimeFactory.parseDate("1.5.2008")),is(false));
 		assertThat(z.contains(TimeFactory.parseDate("1.5.2010")),is(false));
 		assertThat(z.contains(start),is(true));
-		assertThat(z.contains(ende),is(true));
+		assertThat(z.contains(ende),is(false));
 		assertThat(z.contains(TimeFactory.parseDateTime("1.1.2010 00:00")),is(false));
 	}
 	

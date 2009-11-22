@@ -1,48 +1,46 @@
 package de.gzockoll.common.types;
 
-import java.util.Calendar;
 import java.util.Date;
 
+import org.joda.time.DateTime;
+import org.joda.time.Interval;
+
 public class TimeSpan {
-	private Timepoint start;
-	private Timepoint ende;
+	private Interval interval;
 	public TimeSpan(Date start, Date ende) {
 		super();
-		this.start = new Timepoint(start);
-		this.ende = new Timepoint(ende);
+		this.interval=new Interval(new DateTime(start),new DateTime(ende));
 	}
 
 	private TimeSpan(Timepoint start, Timepoint ende) {
 		super();
-		this.start = start;
-		this.ende = ende;
+		this.interval=new Interval(start.getTimeDate(),ende.getTimeDate());
 	}
 
 	public TimeSpan(Date start) {
 		super();
-		this.start = new Timepoint(start);
-		this.ende = null;
+		this.interval = new Interval(new Timepoint(start));
 	}
 	
 	
 	public Date getEnde() {
-		return ende.getDate();
+		return interval.getEnd().toDate();
 	}
 
 	public void setEnde(Date ende) {
-		this.ende = new Timepoint(ende);
+		this.interval=new Interval(interval.getStart(),new DateTime(ende));
 	}
 
 	public Date getStart() {
-		return start.getDate();
+		return interval.getStart().toDate();
 	}
 
-	public boolean contains(Date now) {
-		return (!now.before(start.getDate()) && (!now.after(ende.getDate())));
+	public boolean contains(Date date) {
+		return interval.contains(new DateTime(date));
 	}
 	
 	public boolean schneidet(TimeSpan other) {
-		return contains(other.start.getDate()) || contains(other.ende.getDate());
+		return interval.overlaps(other.interval);
 	}
 
 	public static TimeSpan nowAndForever() {
