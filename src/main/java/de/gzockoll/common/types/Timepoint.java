@@ -29,4 +29,9 @@ public class Timepoint {
 	public DateTime getTimeDate() {
 		return dateTime;
 	}
+	
+	@Override
+	public String toString() {
+		return dateTime.toString();
+	}
 }
