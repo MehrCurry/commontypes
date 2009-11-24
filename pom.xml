@@ -5,6 +5,11 @@
 	<artifactId>commontypes</artifactId>
 	<name>Common Types</name>
 	<version>0.0.1-SNAPSHOT</version>
+  <parent>
+	  <groupId>de.gzockoll</groupId>
+	  <artifactId>pom-master</artifactId>
+	  <version>1</version>
+  </parent>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
