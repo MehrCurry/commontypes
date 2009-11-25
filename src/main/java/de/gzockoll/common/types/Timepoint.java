@@ -22,6 +22,10 @@ public class Timepoint {
 		this.dateTime=new DateTime(year,month,day,0,0,0,0);
 	}
 
+	public static Timepoint now() {
+		return new Timepoint(TimeFactory.now());
+	}
+
 	public Date getDate() {
 		return dateTime.toDate();
 	}
@@ -33,5 +37,13 @@ public class Timepoint {
 	@Override
 	public String toString() {
 		return dateTime.toString();
+	}
+
+	public int getHours() {
+		return dateTime.getHourOfDay();
+	}
+
+	public static Timepoint parseDateTime(String string) {
+		return new Timepoint(TimeFactory.parseDateTime(string));
 	}
 }

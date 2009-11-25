@@ -10,7 +10,10 @@
 	  <artifactId>pom-master</artifactId>
 	  <version>1</version>
   </parent>
-	<dependencies>
+  <scm>
+  	<connection>scm:git:git@250101.vservert.de:/var/spool/git/commontypes</connection>
+  	<developerConnection>scm:git:guido@250101.vservert.de:/var/spool/git/commontypes</developerConnection>
+  </scm>  	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
