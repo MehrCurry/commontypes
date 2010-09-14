@@ -11,32 +11,13 @@
 	  <version>1</version>
   </parent>
   <scm>
-  	<connection>scm:git:git@250101.vservert.de:/var/spool/git/commontypes</connection>
-  	<developerConnection>scm:git:guido@250101.vservert.de:/var/spool/git/commontypes</developerConnection>
+  	<connection>scm:git:ssh//250101.vserver.de/var/spool/git/commontypes</connection>
+  	<developerConnection>scm:git:ssh//250101.vserver.de/var/spool/git/commontypes</developerConnection>
   </scm>  	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.7</version>
-			<scope>test</scope>
-		</dependency>
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
 			<version>1.6.1</version>
 		</dependency>
 	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-
 </project>
